@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v){
         if(v== mSearch) {
-            String location = mSearch.getText().toString();
-            Intent intent = new Intent(MainActivity.this, RestaurantsListActivity.class);
-            intent.putExtra("location", location);
+            String event = mSearch.getText().toString();
+            Intent intent = new Intent(MainActivity.this, EventListActivity.class);
+            intent.putExtra("event", event);
             startActivity(intent);
         }
     }
