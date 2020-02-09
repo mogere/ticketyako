@@ -20,6 +20,10 @@ android {
     buildTypes.each {
         it.buildConfigField 'String', 'TICKETMASTER_API_KEY', TicketMasterApiKey
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
