@@ -1,18 +1,18 @@
 
 package com.mogere.ticketyako.models;
 
+import java.io.Serializable;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Embedded {
+public class Embedded implements Serializable
+{
 
-    @SerializedName("venues")
+    @SerializedName("events")
     @Expose
-    private List<Venue_> venues = null;
-    @SerializedName("attractions")
-    @Expose
-    private List<Attraction_> attractions = null;
+    private List<Event> events = null;
+    private final static long serialVersionUID = -6655996600808574209L;
 
     /**
      * No args constructor for use in serialization
@@ -23,29 +23,19 @@ public class Embedded {
 
     /**
      * 
-     * @param venues
-     * @param attractions
+     * @param events
      */
-    public Embedded(List<Venue_> venues, List<Attraction_> attractions) {
+    public Embedded(List<Event> events) {
         super();
-        this.venues = venues;
-        this.attractions = attractions;
+        this.events = events;
     }
 
-    public List<Venue_> getVenues() {
-        return venues;
+    public List<Event> getEvents() {
+        return events;
     }
 
-    public void setVenues(List<Venue_> venues) {
-        this.venues = venues;
-    }
-
-    public List<Attraction_> getAttractions() {
-        return attractions;
-    }
-
-    public void setAttractions(List<Attraction_> attractions) {
-        this.attractions = attractions;
+    public void setEvents(List<Event> events) {
+        this.events = events;
     }
 
 }

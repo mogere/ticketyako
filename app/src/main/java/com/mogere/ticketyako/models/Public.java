@@ -1,10 +1,12 @@
 
 package com.mogere.ticketyako.models;
 
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Public {
+public class Public implements Serializable
+{
 
     @SerializedName("startDateTime")
     @Expose
@@ -15,6 +17,7 @@ public class Public {
     @SerializedName("endDateTime")
     @Expose
     private String endDateTime;
+    private final static long serialVersionUID = 8792211983963319607L;
 
     /**
      * No args constructor for use in serialization

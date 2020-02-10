@@ -1,10 +1,12 @@
 
 package com.mogere.ticketyako.models;
 
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Country {
+public class Country implements Serializable
+{
 
     @SerializedName("name")
     @Expose
@@ -12,6 +14,7 @@ public class Country {
     @SerializedName("countryCode")
     @Expose
     private String countryCode;
+    private final static long serialVersionUID = 5248638610391403411L;
 
     /**
      * No args constructor for use in serialization

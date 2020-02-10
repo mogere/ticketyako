@@ -1,10 +1,12 @@
 
 package com.mogere.ticketyako.models;
 
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Classification {
+public class Classification implements Serializable
+{
 
     @SerializedName("primary")
     @Expose
@@ -18,15 +20,10 @@ public class Classification {
     @SerializedName("subGenre")
     @Expose
     private SubGenre subGenre;
-    @SerializedName("type")
-    @Expose
-    private Type type;
-    @SerializedName("subType")
-    @Expose
-    private SubType subType;
     @SerializedName("family")
     @Expose
     private Boolean family;
+    private final static long serialVersionUID = -4280279388658604466L;
 
     /**
      * No args constructor for use in serialization
@@ -40,19 +37,15 @@ public class Classification {
      * @param subGenre
      * @param segment
      * @param genre
-     * @param subType
-     * @param type
      * @param family
      * @param primary
      */
-    public Classification(Boolean primary, Segment segment, Genre genre, SubGenre subGenre, Type type, SubType subType, Boolean family) {
+    public Classification(Boolean primary, Segment segment, Genre genre, SubGenre subGenre, Boolean family) {
         super();
         this.primary = primary;
         this.segment = segment;
         this.genre = genre;
         this.subGenre = subGenre;
-        this.type = type;
-        this.subType = subType;
         this.family = family;
     }
 
@@ -86,22 +79,6 @@ public class Classification {
 
     public void setSubGenre(SubGenre subGenre) {
         this.subGenre = subGenre;
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public void setType(Type type) {
-        this.type = type;
-    }
-
-    public SubType getSubType() {
-        return subType;
-    }
-
-    public void setSubType(SubType subType) {
-        this.subType = subType;
     }
 
     public Boolean getFamily() {

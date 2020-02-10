@@ -5,26 +5,26 @@ import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Self__ implements Serializable
+public class Next implements Serializable
 {
 
     @SerializedName("href")
     @Expose
     private String href;
-    private final static long serialVersionUID = 6487960992814456690L;
+    private final static long serialVersionUID = -3912624146182139896L;
 
     /**
      * No args constructor for use in serialization
      * 
      */
-    public Self__() {
+    public Next() {
     }
 
     /**
      * 
      * @param href
      */
-    public Self__(String href) {
+    public Next(String href) {
         super();
         this.href = href;
     }

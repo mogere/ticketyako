@@ -1,10 +1,12 @@
 
 package com.mogere.ticketyako.models;
 
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Image {
+public class Image implements Serializable
+{
 
     @SerializedName("ratio")
     @Expose
@@ -21,6 +23,10 @@ public class Image {
     @SerializedName("fallback")
     @Expose
     private Boolean fallback;
+    @SerializedName("attribution")
+    @Expose
+    private String attribution;
+    private final static long serialVersionUID = 7892135116466713837L;
 
     /**
      * No args constructor for use in serialization
@@ -32,18 +38,20 @@ public class Image {
     /**
      * 
      * @param width
+     * @param attribution
      * @param fallback
      * @param url
      * @param ratio
      * @param height
      */
-    public Image(String ratio, String url, Integer width, Integer height, Boolean fallback) {
+    public Image(String ratio, String url, Integer width, Integer height, Boolean fallback, String attribution) {
         super();
         this.ratio = ratio;
         this.url = url;
         this.width = width;
         this.height = height;
         this.fallback = fallback;
+        this.attribution = attribution;
     }
 
     public String getRatio() {
@@ -84,6 +92,14 @@ public class Image {
 
     public void setFallback(Boolean fallback) {
         this.fallback = fallback;
+    }
+
+    public String getAttribution() {
+        return attribution;
+    }
+
+    public void setAttribution(String attribution) {
+        this.attribution = attribution;
     }
 
 }

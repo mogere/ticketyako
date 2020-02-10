@@ -16,6 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mogere.ticketyako.R;
 import com.mogere.ticketyako.models.TicketMasterSearchResponse;
+import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -52,7 +55,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         @BindView(R.id.eventImageView) ImageView mRestaurantImageView;
         @BindView(R.id.eventNameTextView) TextView mNameTextView;
         @BindView(R.id.categoryTextView) TextView mCategoryTextView;
-        @BindView(R.id.ratingTextView) TextView mRatingTextView;
+        @BindView(R.id.urlTextView) TextView mUrlTextView;
 
         private Context mcontext;
 
@@ -66,11 +69,19 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
 
         @Override
         public void onClick(View v) {
+//            int itemPosition = getLayoutPosition();
+//            Intent intent = new Intent(mContext, RestaurantDetailActivity.class);
+//            intent.putExtra("position", itemPosition);
+//            intent.putExtra("restaurants", Parcels.wrap(mRestaurants));
+//            mContext.startActivity(intent);
 
         }
 
         public void bindEvent(TicketMasterSearchResponse event){
-
+            //Picasso.get().load(event.getImageUrl()).into(mEventImageView);
+            mNameTextView.setText(event.getName());
+            mCategoryTextView.setText(event.getType());
+            mUrlTextView.setText("Url: " + event.getUrl());
         }
     }
 }

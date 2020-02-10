@@ -1,14 +1,17 @@
 
 package com.mogere.ticketyako.models;
 
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Venue {
+public class Venue implements Serializable
+{
 
     @SerializedName("href")
     @Expose
     private String href;
+    private final static long serialVersionUID = -1687819275804377046L;
 
     /**
      * No args constructor for use in serialization

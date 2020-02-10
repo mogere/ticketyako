@@ -1,11 +1,13 @@
 
 package com.mogere.ticketyako.models;
 
+import java.io.Serializable;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Attraction_ {
+public class Attraction_ implements Serializable
+{
 
     @SerializedName("name")
     @Expose
@@ -30,7 +32,7 @@ public class Attraction_ {
     private List<String> aliases = null;
     @SerializedName("images")
     @Expose
-    private List<Image__> images = null;
+    private List<Image_> images = null;
     @SerializedName("classifications")
     @Expose
     private List<Classification_> classifications = null;
@@ -40,6 +42,7 @@ public class Attraction_ {
     @SerializedName("_links")
     @Expose
     private Links__ links;
+    private final static long serialVersionUID = -1179634367791094914L;
 
     /**
      * No args constructor for use in serialization
@@ -62,7 +65,7 @@ public class Attraction_ {
      * @param locale
      * @param url
      */
-    public Attraction_(String name, String type, String id, Boolean test, String url, String locale, List<String> aliases, List<Image__> images, List<Classification_> classifications, UpcomingEvents_ upcomingEvents, Links__ links) {
+    public Attraction_(String name, String type, String id, Boolean test, String url, String locale, List<String> aliases, List<Image_> images, List<Classification_> classifications, UpcomingEvents_ upcomingEvents, Links__ links) {
         super();
         this.name = name;
         this.type = type;
@@ -133,11 +136,11 @@ public class Attraction_ {
         this.aliases = aliases;
     }
 
-    public List<Image__> getImages() {
+    public List<Image_> getImages() {
         return images;
     }
 
-    public void setImages(List<Image__> images) {
+    public void setImages(List<Image_> images) {
         this.images = images;
     }
 

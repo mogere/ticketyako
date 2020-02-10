@@ -1,10 +1,12 @@
 
 package com.mogere.ticketyako.models;
 
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Location {
+public class Location implements Serializable
+{
 
     @SerializedName("longitude")
     @Expose
@@ -12,6 +14,7 @@ public class Location {
     @SerializedName("latitude")
     @Expose
     private String latitude;
+    private final static long serialVersionUID = 9186953176496828197L;
 
     /**
      * No args constructor for use in serialization

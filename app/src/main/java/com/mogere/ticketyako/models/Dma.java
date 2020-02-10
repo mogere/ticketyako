@@ -1,12 +1,17 @@
 
 package com.mogere.ticketyako.models;
 
+import java.io.Serializable;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
+public class Dma implements Serializable
+{
 
-public class Dma {
-
-
+    @SerializedName("id")
+    @Expose
     private Integer id;
+    private final static long serialVersionUID = -7126497057962767996L;
 
     /**
      * No args constructor for use in serialization

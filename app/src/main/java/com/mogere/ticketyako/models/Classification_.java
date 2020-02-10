@@ -1,10 +1,12 @@
 
 package com.mogere.ticketyako.models;
 
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Classification_ {
+public class Classification_ implements Serializable
+{
 
     @SerializedName("primary")
     @Expose
@@ -20,13 +22,14 @@ public class Classification_ {
     private SubGenre_ subGenre;
     @SerializedName("type")
     @Expose
-    private Type_ type;
+    private Type type;
     @SerializedName("subType")
     @Expose
-    private SubType_ subType;
+    private SubType subType;
     @SerializedName("family")
     @Expose
     private Boolean family;
+    private final static long serialVersionUID = 206930738484676391L;
 
     /**
      * No args constructor for use in serialization
@@ -45,7 +48,7 @@ public class Classification_ {
      * @param family
      * @param primary
      */
-    public Classification_(Boolean primary, Segment_ segment, Genre_ genre, SubGenre_ subGenre, Type_ type, SubType_ subType, Boolean family) {
+    public Classification_(Boolean primary, Segment_ segment, Genre_ genre, SubGenre_ subGenre, Type type, SubType subType, Boolean family) {
         super();
         this.primary = primary;
         this.segment = segment;
@@ -88,19 +91,19 @@ public class Classification_ {
         this.subGenre = subGenre;
     }
 
-    public Type_ getType() {
+    public Type getType() {
         return type;
     }
 
-    public void setType(Type_ type) {
+    public void setType(Type type) {
         this.type = type;
     }
 
-    public SubType_ getSubType() {
+    public SubType getSubType() {
         return subType;
     }
 
-    public void setSubType(SubType_ subType) {
+    public void setSubType(SubType subType) {
         this.subType = subType;
     }
 

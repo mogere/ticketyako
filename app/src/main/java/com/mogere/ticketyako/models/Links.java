@@ -1,11 +1,13 @@
 
 package com.mogere.ticketyako.models;
 
+import java.io.Serializable;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Links {
+public class Links implements Serializable
+{
 
     @SerializedName("self")
     @Expose
@@ -16,6 +18,7 @@ public class Links {
     @SerializedName("venues")
     @Expose
     private List<Venue> venues = null;
+    private final static long serialVersionUID = -6032134971212330242L;
 
     /**
      * No args constructor for use in serialization

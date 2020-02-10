@@ -1,14 +1,17 @@
 
 package com.mogere.ticketyako.models;
 
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Links_ {
+public class Links_ implements Serializable
+{
 
     @SerializedName("self")
     @Expose
     private Self_ self;
+    private final static long serialVersionUID = -584319033325134419L;
 
     /**
      * No args constructor for use in serialization
