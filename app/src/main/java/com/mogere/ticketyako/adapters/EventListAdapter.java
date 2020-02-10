@@ -33,8 +33,6 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         mEvents = events;
     }
 
-
-    @NonNull
     @Override
     public EventListAdapter.EventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_list_item, parent, false);
@@ -79,7 +77,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         }
 
         public void bindEvent(Event event){
-            //Picasso.get().load(event.getImageUrl()).into(mEventImageView);
+            //Picasso.get().load(event.getImages()).into(mEventImageView);
             mNameTextView.setText(event.getName());
             mCategoryTextView.setText(event.getType());
             mUrlTextView.setText("Url: " + event.getUrl());

@@ -8,9 +8,9 @@ import retrofit2.http.Query;
 
 public interface    TicketMasterApi {
 
-    @GET("events/")
+    @GET("events.json?apikey=Xqft3u5SqlBSELkbihJjgyKsKNUiCPLJ")
     Call<TicketMasterSearchResponse> getEvents(
-            @Query("event") String event,
+            @Query("type") String event,
             @Query("term") String term
     );
 }

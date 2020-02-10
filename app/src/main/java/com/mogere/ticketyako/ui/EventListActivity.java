@@ -28,12 +28,17 @@ import retrofit2.Response;
 
 public class EventListActivity extends AppCompatActivity {
 
-    @BindView(R.id.recyclerView)
-    RecyclerView mRecyclerView;
-    @BindView(R.id.errorTextView)
-    TextView mErrorTextView;
-    @BindView(R.id.progressBar)
-    ProgressBar mProgressBar;
+//    @BindView(R.id.recyclerView)
+//    RecyclerView mRecyclerView;
+//    @BindView(R.id.errorTextView)
+//    TextView mErrorTextView;
+//    @BindView(R.id.progressBar)
+//    ProgressBar mProgressBar;
+
+    private  RecyclerView mRecyclerView;
+    private TextView mErrorTextView;
+    private ProgressBar mProgressBar;
+
     private EventListAdapter mAdapter;
 
     public static final String TAG = EventListActivity.class.getSimpleName();
@@ -44,7 +49,11 @@ public class EventListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_list);
-        ButterKnife.bind(this);
+//        ButterKnife.bind(this);
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        mErrorTextView = (TextView)findViewById(R.id.errorTextView);
+        mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         Intent intent = getIntent();
         String event = intent.getStringExtra("event");
@@ -56,6 +65,8 @@ public class EventListActivity extends AppCompatActivity {
         call.enqueue(new Callback<TicketMasterSearchResponse>() {
             @Override
             public void onResponse(Call<TicketMasterSearchResponse> call, Response<TicketMasterSearchResponse> response) {
+
+                hideProgressBar();
                 if (response.isSuccessful()) {
 
                     hideProgressBar();
@@ -71,12 +82,6 @@ public class EventListActivity extends AppCompatActivity {
                 } else {
                     showUnsuccessfulMessage();
                 }
-//                @Override
-//                public void onFailure(Call<TicketMasterSearchResponse> call, Throwable t) {
-//                    Log.e(TAG, "onFailure: ",t );
-//                    hideProgressBar();
-//                    showFailureMessage();
-//                }
             }
 
             @Override
