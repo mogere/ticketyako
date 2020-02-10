@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mogere.ticketyako.R;
+import com.mogere.ticketyako.models.Event;
 import com.mogere.ticketyako.models.TicketMasterSearchResponse;
 import com.squareup.picasso.Picasso;
 
@@ -24,10 +25,10 @@ import java.util.List;
 
 public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.EventViewHolder>{
 
-    public List<TicketMasterSearchResponse> mEvents;
+    public List<Event> mEvents;
     private Context mContext;
 
-    public EventListAdapter(Context context, List<TicketMasterSearchResponse> events){
+    public EventListAdapter(Context context, List<Event> events){
         mContext = context;
         mEvents = events;
     }
@@ -52,12 +53,12 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
     }
 
     public class EventViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        @BindView(R.id.eventImageView) ImageView mRestaurantImageView;
+        @BindView(R.id.eventImageView) ImageView mEventImageView;
         @BindView(R.id.eventNameTextView) TextView mNameTextView;
         @BindView(R.id.categoryTextView) TextView mCategoryTextView;
         @BindView(R.id.urlTextView) TextView mUrlTextView;
 
-        private Context mcontext;
+       // private Context mcontext;
 
         public EventViewHolder(View itemView){
             super(itemView);
@@ -77,7 +78,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
 
         }
 
-        public void bindEvent(TicketMasterSearchResponse event){
+        public void bindEvent(Event event){
             //Picasso.get().load(event.getImageUrl()).into(mEventImageView);
             mNameTextView.setText(event.getName());
             mCategoryTextView.setText(event.getType());

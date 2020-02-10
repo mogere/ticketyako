@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.mogere.ticketyako.R;
 import com.mogere.ticketyako.adapters.EventListAdapter;
+import com.mogere.ticketyako.models.Event;
 import com.mogere.ticketyako.models.TicketMasterSearchResponse;
 import com.mogere.ticketyako.network.TicketMasterApi;
 import com.mogere.ticketyako.network.TicketMasterClient;
@@ -37,7 +38,7 @@ public class EventListActivity extends AppCompatActivity {
 
     public static final String TAG = EventListActivity.class.getSimpleName();
 
-    public List<TicketMasterSearchResponse> events;
+    public List<Event> events;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +60,7 @@ public class EventListActivity extends AppCompatActivity {
 
                     hideProgressBar();
 
-                    events = response.body().getEvent();
+                    events = response.body().getEmbedded().getEvents();
                     mAdapter = new EventListAdapter(EventListActivity.this, events);
                     mRecyclerView.setAdapter(mAdapter);
                     RecyclerView.LayoutManager layoutManager =
@@ -76,6 +77,13 @@ public class EventListActivity extends AppCompatActivity {
 //                    hideProgressBar();
 //                    showFailureMessage();
 //                }
+            }
+
+            @Override
+            public void onFailure(Call<TicketMasterSearchResponse> call, Throwable t) {
+                Log.e(TAG, "onFailure: ",t );
+                hideProgressBar();
+                showFailureMessage();
             }
 
         });
