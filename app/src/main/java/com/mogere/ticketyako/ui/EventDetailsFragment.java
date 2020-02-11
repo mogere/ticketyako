@@ -16,6 +16,8 @@ import android.widget.TextView;
 import com.mogere.ticketyako.R;
 import com.mogere.ticketyako.models.Event;
 
+import org.parceler.Parcels;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -37,6 +39,20 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
         // Required empty public constructor
     }
 
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mEvent = Parcels.unwrap(getArguments().getParcelable("restaurant"));
+    }
+
+    public static EventDetailsFragment newInstance(Event events) {
+        EventDetailsFragment eventDetailFragment = new EventDetailsFragment();
+        Bundle args = new Bundle();
+        args.putParcelable("events", Parcels.wrap(events));
+        eventDetailFragment.setArguments(args);
+        return eventDetailFragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
