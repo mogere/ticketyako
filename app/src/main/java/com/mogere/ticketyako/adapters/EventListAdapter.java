@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.mogere.ticketyako.R;
 import com.mogere.ticketyako.models.Event;
 import com.mogere.ticketyako.models.TicketMasterSearchResponse;
+import com.mogere.ticketyako.ui.EventDetailActivity;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -68,11 +69,11 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
 
         @Override
         public void onClick(View v) {
-//            int itemPosition = getLayoutPosition();
-//            Intent intent = new Intent(mContext, RestaurantDetailActivity.class);
-//            intent.putExtra("position", itemPosition);
-//            intent.putExtra("restaurants", Parcels.wrap(mRestaurants));
-//            mContext.startActivity(intent);
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, EventDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("restaurants", Parcels.wrap(mEvents));
+            mContext.startActivity(intent);
 
         }
 

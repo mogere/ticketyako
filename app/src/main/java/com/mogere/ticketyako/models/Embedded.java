@@ -1,4 +1,5 @@
 
+
 package com.mogere.ticketyako.models;
 
 import java.io.Serializable;
@@ -6,6 +7,9 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Embedded implements Serializable
 {
 
