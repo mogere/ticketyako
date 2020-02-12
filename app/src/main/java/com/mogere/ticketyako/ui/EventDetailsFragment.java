@@ -43,7 +43,7 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mEvent = Parcels.unwrap(getArguments().getParcelable("restaurant"));
+        mEvent = Parcels.unwrap(getArguments().getParcelable("events"));
     }
 
     public static EventDetailsFragment newInstance(Event events) {

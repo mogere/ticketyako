@@ -6,7 +6,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public interface    TicketMasterApi {
+public interface TicketMasterApi {
 
     @GET("events.json?apikey=Xqft3u5SqlBSELkbihJjgyKsKNUiCPLJ")
     Call<TicketMasterSearchResponse> getEvents(

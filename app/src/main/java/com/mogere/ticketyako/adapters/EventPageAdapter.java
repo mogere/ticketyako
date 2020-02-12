@@ -1,4 +1,4 @@
-package com.mogere.ticketyako;
+package com.mogere.ticketyako.adapters;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -12,8 +12,9 @@ import java.util.List;
 public class EventPageAdapter extends FragmentPagerAdapter {
     private List<Event> mEvent;
 
-    public EventPageAdapter(FragmentManager fm, List<Event> events){
-        super(fm);
+    public EventPageAdapter(FragmentManager fm, int behaviour, List<Event> events){
+        super(fm, behaviour);
+
         mEvent = events;
 
     }

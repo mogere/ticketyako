@@ -1,11 +1,12 @@
 package com.mogere.ticketyako.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 
-import com.mogere.ticketyako.EventPageAdapter;
+import com.mogere.ticketyako.adapters.EventPageAdapter;
 import com.mogere.ticketyako.R;
 import com.mogere.ticketyako.models.Event;
 
@@ -32,7 +33,7 @@ public class EventDetailActivity extends AppCompatActivity {
         mEvent = Parcels.unwrap(getIntent().getParcelableExtra("events"));
         int startingPosition = getIntent().getIntExtra("position", 0);
 
-        adapterViewPager = new EventPageAdapter(getSupportFragmentManager(),  mEvent);
+        adapterViewPager = new EventPageAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, mEvent);
         mViewPager.setAdapter(adapterViewPager);
         mViewPager.setCurrentItem(startingPosition);
     }

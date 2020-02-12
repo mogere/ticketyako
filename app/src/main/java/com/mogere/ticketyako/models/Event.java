@@ -8,8 +8,8 @@ import com.google.gson.annotations.SerializedName;
 
 import org.parceler.Parcel;
 
-@Parcel
-public class Event implements Serializable
+@Parcel(Parcel.Serialization.BEAN)
+public class Event
 {
 
     @SerializedName("name")
