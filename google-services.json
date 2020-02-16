@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1019137947714",
+    "firebase_url": "https://ticketyako-e4bd8.firebaseio.com",
+    "project_id": "ticketyako-e4bd8",
+    "storage_bucket": "ticketyako-e4bd8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019137947714:android:b35c64c06fb50846e695db",
+        "android_client_info": {
+          "package_name": "com.mogere.ticketyako"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1019137947714-33vknt2clntn3ter4cvheketm78n6ip0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mogere.ticketyako",
+            "certificate_hash": "28461a46e0cd164c3b3c6e90e2e54fa93c4b0866"
+          }
+        },
+        {
+          "client_id": "1019137947714-tctuitntqotu20mo9h7gg2gp6ebcsddl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7SgRvRFx0Tb0t0IYQj15ASJvZNnHBMT4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1019137947714-tctuitntqotu20mo9h7gg2gp6ebcsddl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

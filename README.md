@@ -1,4 +1,4 @@
-# Shofar Application
+# TicketYako Mobile Application
 ### Description
 This is an Android Application that consumes the Ticketmaster API to display a list of 
 events whose tickets are available.
