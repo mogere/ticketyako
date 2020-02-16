@@ -6,4 +6,5 @@ public class Constants {
 
     public static final String TicketMaster_BASE_URL = "https://app.ticketmaster.com/discovery/v2/";
     public static final String TicketMaster_API_KEY = BuildConfig.TICKETMASTER_API_KEY;
+    public static final String FIREBASE_CHILD_EVENTS = "events";
 }

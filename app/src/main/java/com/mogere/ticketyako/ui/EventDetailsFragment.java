@@ -10,10 +10,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.mogere.ticketyako.R;
+import com.mogere.ticketyako.models.Constants;
 import com.mogere.ticketyako.models.Event;
 
 import org.parceler.Parcels;
@@ -32,6 +37,7 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
     @BindView(R.id.typeTextView)TextView mType;
     @BindView(R.id.localeTextView)TextView mLocale;
     @BindView(R.id.urlTextView)TextView mUrl;
+    @BindView(R.id.saveEventButton)Button mSaveEventButton;
 
     private Event mEvent;
 
@@ -75,6 +81,13 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
             Intent webIntent = new Intent(Intent.ACTION_VIEW,
                     Uri.parse(mEvent.getUrl()));
             startActivity(webIntent);
+        }
+        if (v == mSaveEventButton) {
+            DatabaseReference restaurantRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_EVENTS);
+            restaurantRef.push().setValue(mEvent);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }
 }
