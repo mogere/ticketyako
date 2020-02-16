@@ -5,8 +5,13 @@ events whose tickets are available.
 ### BDD
 |feature     |Description      |
 |------------|------------------
+|Login page | Login to the app and get authenticated|
+|Create Account page | Create your own account using email and password|
+|Logout | Logout from the app and go back to login page|
 |Start page | Logo and Get started page|
 |See list of Events|Shows the Events available|
+|Save| Save a particular event|
+|Search | Search for events|
 |See particular Event|shows the details of a event|
 
 
