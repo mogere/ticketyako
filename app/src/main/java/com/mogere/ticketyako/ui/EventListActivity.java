@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -91,6 +93,14 @@ public class EventListActivity extends AppCompatActivity {
 
         });
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_search, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
     private void showFailureMessage() {
         mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
         mErrorTextView.setVisibility(View.VISIBLE);
@@ -108,6 +118,8 @@ public class EventListActivity extends AppCompatActivity {
     private void hideProgressBar() {
         mProgressBar.setVisibility(View.GONE);
     }
+
+
 
 }
 
