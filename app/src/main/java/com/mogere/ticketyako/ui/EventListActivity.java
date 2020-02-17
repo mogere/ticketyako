@@ -1,6 +1,7 @@
 package com.mogere.ticketyako.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -44,6 +46,7 @@ public class EventListActivity extends AppCompatActivity {
     public static final String TAG = EventListActivity.class.getSimpleName();
 
     public List<Event> events;
+    TicketMasterApi client = TicketMasterClient.getClient();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +61,7 @@ public class EventListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String event = intent.getStringExtra("event");
 
-        TicketMasterApi client = TicketMasterClient.getClient();
+       // TicketMasterApi client = TicketMasterClient.getClient();
         Call<TicketMasterSearchResponse> call = client.getEvents(event, "Events");
 
 
@@ -98,7 +101,33 @@ public class EventListActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_search, menu);
-        return super.onCreateOptionsMenu(menu);
+
+        ButterKnife.bind(this);
+
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView)menuItem.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                client.getEvents(query, "Events");
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+
+        });
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 
     private void showFailureMessage() {
