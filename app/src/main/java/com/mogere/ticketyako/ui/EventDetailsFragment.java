@@ -72,6 +72,8 @@ public class EventDetailsFragment extends Fragment implements View.OnClickListen
 
         mUrl.setOnClickListener(this);
         mSaveEventButton.setOnClickListener(this);
+
+        setHasOptionsMenu(true);
         return view;
     }
 
