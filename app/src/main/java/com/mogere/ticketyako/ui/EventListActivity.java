@@ -111,7 +111,7 @@ public class EventListActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextSubmit(String query) {
-                client.getEvents(query, "Events");
+                Call<TicketMasterSearchResponse> call = client.getEvents(query, "Events");
                 return false;
             }
 
